@@ -1,7 +1,30 @@
+//tldr
+//most stack based (smaller ones)  data are copied when assigned to another var or used in a control structure(like for
+//loop) because copying new data into stack mem is fast.
+//
+//---i have no idea about large stack data-----
+//
+//heap based data are not copied but rather moved by default when they are assigned to another var or used in
+//a control structure(like for loop) because the compiler calls the drop trait implementation
+//automatically when the data goes out of scope 
+//we can copy the heap data without moving it by calling the clone() method on it 
+//(Note:operations on heap data is costly and should be dealt with caution)
+//
+//
+//
+
+
+
 #![allow(unused_variables)]
 #![allow(dead_code)]
+// use std::io;
 
-use std::io;
+// fn test(number:u32) {
+//     println!("{number}");
+// }
+
+
+
 fn main() {
     // let s:&str="Hello,World";
     // println!("the value of s is {s}");
@@ -93,6 +116,79 @@ fn main() {
     //     &sentence[..]
     // }
     //
+
+
+    // let animals:[&str;3]=["cat","dog","rabbit"];
+    // for a in animals {
+    //     println!("The animal is {a}");
+    // }
+    // println!("trying to access 2nd time");
+    // println!("using an array this time (i.e stack allocated memory)");
+    //
+    // for a in animals {
+    //     println!("The animal is {a}");
+    // }
+
+    /*
+     Notes:
+        heap allocated data like String or vec! gets its ownership moved when using in a loop 
+        stack allocated data like array doesnt 
+    */
+
+
+    //testing ownership moving
+
+    // let inp_str=String::from("Hello,World!");
+    // println!("Before moving");
+    // println!("The value of inp_str is {inp_str}");
+    // println!("Moving...");
+    // // let sec_str=inp_str;    <= this moves the ownership
+    // let sec_str=inp_str.clone(); //<= this copies (deep-copies) the data in a new heap memory and
+    //                              //inits the sec_str
+    // println!("The value of sec_str is {sec_str}");
+    // println!("Trying to access inp_str");
+    // println!("The value of inp_str is {inp_str}");
+
+
+
+
+
+    //This would work because an array is alloc in the stack because whenever we use it in the for
+    //loop,the array is copied,and used from there
+    //This wont work on heap alloc data like vector because heap alloc data dont implement the
+    //copy trait,i.e they are not copied into memory,they will be moved(called as the transfer of
+    //ownership)(reason:refer top of the document)
+    // let random_numbers:[i32;5]=[1,9,3,4,2];
+    // for i in random_numbers{
+    //     println!("The number is {i}");
+    // }
+    // println!("{}",random_numbers[3]);
+
+    
+
+
+
+
+    // let animals=vec!["dog","cat","horse","boa","lizard wiz"];
+    // for (i,&a) in animals.iter().enumerate(){
+    //     println!("The {i}th animal name is {a}");
+    // }
+    // println!("{}",animals[1]);
+
+
+
+
+
+
+
+
+// // static STRING= String::from("hello");
+//
+// fn main() {
+//     let mut x = STRING; // convert &str → String
+//     x.push_str(" world");           // ✅ valid now
+//     println!("{x}");
+// }
 
 
 
