@@ -10,7 +10,13 @@
 //we can copy the heap data without moving it by calling the clone() method on it 
 //(Note:operations on heap data is costly and should be dealt with caution)
 //
+//---this is for the data that doesnt get copied but instead gets moved-----
+//using & 
+//in a place like 
+//let a=&something; means we are borrowing it i.e we are getting immutable reference to
+//it not the data in the mem itself,i.e we get the ptr to that data immutable
 //
+//let a=&mut something; means we are getting a mutable reference of something,i.e borrow it mutable
 //
 
 
@@ -22,6 +28,8 @@
 // fn test(number:u32) {
 //     println!("{number}");
 // }
+
+use std::vec;
 
 
 
@@ -158,6 +166,9 @@ fn main() {
     //This wont work on heap alloc data like vector because heap alloc data dont implement the
     //copy trait,i.e they are not copied into memory,they will be moved(called as the transfer of
     //ownership)(reason:refer top of the document)
+    
+
+
     // let random_numbers:[i32;5]=[1,9,3,4,2];
     // for i in random_numbers{
     //     println!("The number is {i}");
@@ -169,28 +180,50 @@ fn main() {
 
 
 
+    //Yo i figured it out
+    //when we use just "for a in animals {...}" it means "for a in animals.into_iter(){...}"
+    //into_iter() moves(not copy) it into a seperate memory for the loop
+    //but when we use .iter() it returns &T for every item T in the list/vec 
+    //it would mean something like "let a=&T;"
+    //
+    //
     // let animals=vec!["dog","cat","horse","boa","lizard wiz"];
-    // for (i,&a) in animals.iter().enumerate(){
+    // for (i,a) in animals.iter().enumerate(){
     //     println!("The {i}th animal name is {a}");
+    //     a="nigger";
     // }
     // println!("{}",animals[1]);
 
+    //writing 
+    //for &a in animals.iter(){...} is valid because each item in iter is &str and .iter() returns
+    //a reference of it ,i.e &&str,when i use "for &a in animals.iter()" it basically means
+    //let &a=&T; for every item T in animal 
+    // the ampersand would cancel out and it would mean a=T
+    // ^ this is called destructuring btw
+
+    //thats the reason it wont work with enumerate,because it return an int 
+    //and there is nothing to destructure 
 
 
 
 
 
+    // // static STRING= String::from("hello");
+    //
+    // fn main() {
+    //     let mut x = STRING; // convert &str → String
+    //     x.push_str(" world");           // ✅ valid now
+    //     println!("{x}");
+    // }
+
+    //Testing referencing and borrowing
+    let animals=vec!["dog","cat","monkey","elephant"];
+
+    for a in &animals.enumerate() {}
 
 
-// // static STRING= String::from("hello");
-//
-// fn main() {
-//     let mut x = STRING; // convert &str → String
-//     x.push_str(" world");           // ✅ valid now
-//     println!("{x}");
-// }
-
-
+    
+    
 
 
 
