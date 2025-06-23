@@ -26,7 +26,12 @@
 // if i want to modify the original arr/vec i use iter_mut i.e borrow it mutably
 // if i want to create a new list along with the original one,i should use .clone
 
-
+//Some Great words by me
+//“You can't make an immutable binding mutable, but you can move or borrow its value into something mutable.”
+//i.e 
+//let a=String::from("hello");
+//let b=&mut a ; <- this is valid because we are mutating the value of a not a itself
+//let b=mut a; <- invalid since we are trying to mutate the the var a itself
 
 
 #![allow(unused_variables)]
