@@ -2,7 +2,9 @@
 //most stack based (smaller ones)  data are copied when assigned to another var or used in a control structure(like for
 //loop) because copying new data into stack mem is fast.
 //
-//---i have no idea about large stack data-----
+//^ just found out about this
+//stack based data are always copied if they contain stack-types(i32,..) no matter how big they are
+//if they contain a heap based type like String its moved no matter how big or small it is
 //
 //heap based data are not copied but rather moved by default when they are assigned to another var or used in
 //a control structure(like for loop) because the compiler calls the drop trait implementation
@@ -18,6 +20,12 @@
 //
 //let a=&mut something; means we are getting a mutable reference of something,i.e borrow it mutable
 //
+
+
+// so its always better to borrow and use no matter what type heap or stack
+// if i want to modify the original arr/vec i use iter_mut i.e borrow it mutably
+// if i want to create a new list along with the original one,i should use .clone
+
 
 
 
@@ -217,17 +225,7 @@ fn main() {
     // }
 
     //Testing referencing and borrowing
-    let animals=vec!["dog","cat","monkey","elephant"];
-
-    for a in &animals.enumerate() {}
-
-
-    
-    
-
-
-
-
-
-
+    // let animals=vec!["dog","cat","monkey","elephant"];
+    //
+    // for a in animals.iter().enumerate() {}
 }
