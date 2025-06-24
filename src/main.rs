@@ -320,29 +320,58 @@ fn main() {
 
 
     //testing impl on structs
-    struct Person{
-        name:String,
-        age:u8
+    // struct Person{
+    //     name:String,
+    //     age:u8
+    // }
+    //
+    // impl Person {
+    //
+    //     fn greet(&self) {
+    //         println!("My name is {} and i am {} years old",self.name,self.age);
+    //     }
+    //
+    //    fn age_by_one(&mut self){
+    //         self.age+=1;
+    //         println!("Suck it up,you are {} now",self.age);
+    //     }
+    //
+    // }
+    //
+    // let mut p1=Person{name:String::from("sugan"),age:19};
+    //
+    // p1.greet();
+    // p1.age_by_one();
+    // p1.greet();
+
+
+    //testing String functions
+
+    let mut s=String::from("Hello World !");
+    if s.contains("Hell") {
+        println!("The word : '{}' do contain the sub string 'Hell'",s);
     }
 
-    impl Person {
-        
-        fn greet(&self) {
-            println!("My name is {} and i am {} years old",self.name,self.age);
-        }
-
-       fn age_by_one(&mut self){
-            self.age+=1;
-            println!("Suck it up,you are {} now",self.age);
-        }
-
+    if s.contains("nigga") {
+        println!("The word : '{}' do contain the sub string 'nigga'",s);
     }
+    else {
+         println!("The word '{}' doesnt contain the sub string 'nigga'",s);
+     } 
 
-    let mut p1=Person{name:String::from("sugan"),age:19};
+    println!("The length of the word '{}' is {}",s,s.len());
 
-    p1.greet();
-    p1.age_by_one();
-    p1.greet();
-
+    //tokenizing
+    for word in s.split_whitespace() {
+        println!("{word}");
+    }
     
+    println!("{s}");
+    println!("{}",s.is_empty());
+    s.push_str("Sugan");
+
+    println!("{s}");
+
+
+
 }
