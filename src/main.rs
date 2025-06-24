@@ -52,7 +52,7 @@
 //     println!("{number}");
 // }
 
-use std::vec;
+use std::{io, vec};
 
 
 
@@ -239,6 +239,34 @@ fn main() {
     // let animals=vec!["dog","cat","monkey","elephant"];
     //
     // for a in animals.iter().enumerate() {}
+
+
+    //testing enums
+
+    // enum Colors {
+    //     White,
+    //     Yellow,
+    //     Red,
+    //     Orange,
+    //     Blue,
+    //     Green
+    // }
+    //
+    // let c=Colors::Blue;
+    //
+    // match c {
+    //     Colors::White => println!("valid color in a rubik's cube"),
+    //     Colors::Yellow => println!("valid color in a rubik's cube"),
+    //     Colors::Red => println!("valid color in a rubik's cube"),
+    //     Colors::Orange => println!("valid color in a rubik's cube"),
+    //     Colors::Blue => println!("valid color in a rubik's cube"),
+    //     Colors::Green => println!("valid color in a rubik's cube"),
+    // }
+
+
+
+
+
 
     
 }
