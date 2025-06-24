@@ -32,6 +32,11 @@
 //let a=String::from("hello");
 //let b=&mut a ; <- this is valid because we are mutating the value of a not a itself
 //let b=mut a; <- invalid since we are trying to mutate the the var a itself
+//
+//Also !
+//there can only be one reference which is muatble or there can be any number of immutable reference
+//but not both,either 1 mut ref or n immut ref,you cannot have a immut ref along with another mut ref
+//to tackle this you can create your desired ref in a seperate scope using a code  block
 
 //constants
 //constants are variables whose value gets directly substituted in the place they are used in the
@@ -283,14 +288,14 @@ fn main() {
     //to access element of a nested tup ,use (tup.idx1).idx2
 
     //testing structs
-    struct Person {
-        name:String,
-        age:u8,
-        gender:char
-    }
-
-    let person1=Person{name:String::from("sugan"),age:19,gender:'m'};
-    println!("My name is {} and i am {} years old",person1.name,person1.age);
+    // struct Person {
+    //     name:String,
+    //     age:u8,
+    //     gender:char
+    // }
+    //
+    // let person1=Person{name:String::from("sugan"),age:19,gender:'m'};
+    // println!("My name is {} and i am {} years old",person1.name,person1.age);
 
 
     
