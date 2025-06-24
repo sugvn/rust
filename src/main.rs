@@ -261,10 +261,26 @@ fn main() {
     //     Colors::Orange => println!("valid color in a rubik's cube"),
     //     Colors::Blue => println!("valid color in a rubik's cube"),
     //     Colors::Green => println!("valid color in a rubik's cube"),
+    //     _ => println!("Not a valid rubik;s cube color");
     // }
 
+    //testing tuples
+    let tup=(1,2,3,false,6.9); 
+    println!("{}",tup.2+tup.1);
 
 
+    // the below wont work because tuple doesnt impement .iter() because it's
+    // heterogenous(collection of diff types)
+    // for t in tup.iter() {
+    //     println!("{t}");
+    // }
+
+    let tup2=(1,true,String::from("Hello"),(2,3,String::from(",World!")));
+    //^ A tuple can be nested and can even have heap based data in it like strings.
+    //^this decides if the tuple is stored in the heap or stack
+
+    //we can acces elements of a tuple using . operator like tup.0 or tup.1 ,i.e tup.index
+    //to access element of a nested tup ,use (tup.idx1).idx2
 
 
 
