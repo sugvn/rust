@@ -49,6 +49,14 @@
 //They are immutable
 //They allow scoping,i.e they cannot be used outside of the scope they are defined
 
+
+//About structs
+// when you need to change the values of the field in your struct using implementation(impl) you
+// should borrow it as mut ,i.e "fn fn_name(&mut self){}"
+// ^ But this alone wouldnt guarentee you that you are allowed to change the value of struct's field
+// simply put:
+// something can be borrowed mutably if it itself is mutable.
+
 #![allow(unused_variables)]
 #![allow(dead_code)]
 // use std::io;
@@ -311,7 +319,30 @@ fn main() {
     // println!("My name is {} and i am {} years old",p1.0,p1.1);
 
 
+    //testing impl on structs
+    struct Person{
+        name:String,
+        age:u8
+    }
 
+    impl Person {
+        
+        fn greet(&self) {
+            println!("My name is {} and i am {} years old",self.name,self.age);
+        }
+
+       fn age_by_one(&mut self){
+            self.age+=1;
+            println!("Suck it up,you are {} now",self.age);
+        }
+
+    }
+
+    let mut p1=Person{name:String::from("sugan"),age:19};
+
+    p1.greet();
+    p1.age_by_one();
+    p1.greet();
 
     
 }
