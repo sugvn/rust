@@ -298,5 +298,20 @@ fn main() {
     // println!("My name is {} and i am {} years old",person1.name,person1.age);
 
 
+    //testing tuple structs
+    //  struct Person(String,u8,char);
+    //
+    // let p1=Person(String::from("sugan"),19,'m');
+    // println!("My name is {} and i am {} years old",p1.0,p1.1);
+    // testing for mutability
+    // struct Person(String,u8,char);
+    //use mut here because we need to change the field of the struct
+    // let mut p1=Person(String::from("sugan"),19,'m');
+    // p1.0=String::from("Suganraj");
+    // println!("My name is {} and i am {} years old",p1.0,p1.1);
+
+
+
+
     
 }
