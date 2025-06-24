@@ -33,6 +33,16 @@
 //let b=&mut a ; <- this is valid because we are mutating the value of a not a itself
 //let b=mut a; <- invalid since we are trying to mutate the the var a itself
 
+//constants
+//constants are variables whose value gets directly substituted in the place they are used in the
+//program automatically during the compilation time
+//for example
+//const MAX_SIZE:u8=20
+//fn main() {   let a = MAX_SIZE  }  becomes let a=20 during compilation
+//they cannot be modified and they are included directly in the binary
+//i.e,no calculation is done during runtime to allocate and initialise the data in the const var
+//They are immutable
+//They allow scoping,i.e they cannot be used outside of the scope they are defined
 
 #![allow(unused_variables)]
 #![allow(dead_code)]
@@ -217,10 +227,6 @@ fn main() {
     //thats the reason it wont work with enumerate,because it return an int 
     //and there is nothing to destructure 
 
-
-
-
-
     // // static STRING= String::from("hello");
     //
     // fn main() {
@@ -233,4 +239,6 @@ fn main() {
     // let animals=vec!["dog","cat","monkey","elephant"];
     //
     // for a in animals.iter().enumerate() {}
+
+    
 }
