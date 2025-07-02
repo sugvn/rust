@@ -1,9 +1,9 @@
 //tldr
-//most stack based (smaller ones)  data are copied when assigned to another var or used in a control structure(like for
+//stack based data are copied when assigned to another var or used in a control structure(like for
 //loop) because copying new data into stack mem is fast.
 //
 //^ just found out about this
-//stack based data are always copied if they contain stack-types(i32,..) no matter how big they are
+//stack based data are always copied if they contain primitive types such as(i32,..) no matter how big they are
 //if they contain a heap based type like String its moved no matter how big or small it is
 //
 //heap based data are not copied but rather moved by default when they are assigned to another var or used in
@@ -16,14 +16,14 @@
 //using & 
 //in a place like 
 //let a=&something; means we are borrowing it i.e we are getting immutable reference to
-//it not the data in the mem itself,i.e we get the ptr to that data immutable
+//it not the data in the mem itself,i.e we get the ptr to that data immutablly
 //
 //let a=&mut something; means we are getting a mutable reference of something,i.e borrow it mutable
 //
 
 
 // so its always better to borrow and use no matter what type heap or stack
-// if i want to modify the original arr/vec i use iter_mut i.e borrow it mutably
+// if i want to modify the original arr/vec in a for loop ,i use iter_mut i.e borrow it mutably
 // if i want to create a new list along with the original one,i should use .clone
 
 //Some Great words by me
